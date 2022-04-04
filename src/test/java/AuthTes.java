@@ -17,7 +17,7 @@ class AuthTes {
 
     @Test
     void validUser() {
-        RegistrationDto user = DataGenerator.newUserOk();
+        RegistrationDto user = DataGenerator.user("active");
         $x("//span[@data-test-id='login']//input[@type='text']").val(user.getLogin());
         $x("//span[@data-test-id='password']//input[@type='password']").val(user.getPassword());
         $x("//button[@data-test-id='action-login']").click();
@@ -26,7 +26,7 @@ class AuthTes {
 
     @Test
     void blockedUser() {
-        RegistrationDto user = DataGenerator.newUserBlocked();
+        RegistrationDto user = DataGenerator.user("blocked");
         $x("//span[@data-test-id='login']//input[@type='text']").val(user.getLogin());
         $x("//span[@data-test-id='password']//input[@type='password']").val(user.getPassword());
         $x("//button[@data-test-id='action-login']").click();
